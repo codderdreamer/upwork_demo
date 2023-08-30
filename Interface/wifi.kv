@@ -1,0 +1,188 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import Gradient kivy_gradient.Gradient
+
+<HomeWindow>:
+    MDScreen:
+        md_bg_color: get_color_from_hex("#303030") 
+
+<WifiSelectorWindow>:
+    MDScreen:
+        md_bg_color: get_color_from_hex("#16191b")
+
+        MDRelativeLayout:
+            size_hint:1,0.3
+            #md_bg_color:get_color_from_hex("#16191b")
+            pos_hint:{"left":0,"top":1}
+
+            MDCard:
+                size_hint: 1,0.8
+                radius:6,6,6,6
+                pos_hint: {'x': 0,'y': 0}   
+                md_bg_color:(0,0,0,0)
+                #md_bg_color:get_color_from_hex("#fefefe")
+                ripple_behavior: True
+                elevation:0
+                Image:
+                    source:"wifi.png"
+                    size_hint: 1,1
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        
+        MDRelativeLayout:
+            size_hint:1,0.1
+            #md_bg_color:get_color_from_hex("#fefefe")
+            pos_hint:{"left":0,"top":0.65}
+
+            MDLabel:
+                size_hint:1,0.2
+                text: "A wifi is not connected. Please select the wifi you will connect to."
+                theme_text_color:"Custom"
+                font_size:self.height
+                font_name: "font/SF-Pro-Rounded-Medium.otf"
+                text_color:get_color_from_hex("#f2eded")
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                #md_bg_color:get_color_from_hex("#fefefe")
+                halign:"center"
+
+        MDRelativeLayout:
+            size_hint:1,0.5
+            #md_bg_color:get_color_from_hex("#fefefe")
+            pos_hint:{"left":0,"top":0.55}
+
+            MDCard:
+                id: wifi_name_card_1
+                size_hint: 0.7,0.15
+                radius:10,10,10,10
+                pos_hint: {'x': 0.15,'center_y': 0.875}    
+                md_bg_color:get_color_from_hex("#3b4c59")
+                
+                MDLabel:
+                    id: wifi_name_label_1
+                    size_hint:1,0.3
+                    text: "Atlastek"
+                    theme_text_color:"Custom"
+                    font_size:self.height
+                    font_name: "font/SF-Pro-Rounded-Medium.otf"
+                    text_color:get_color_from_hex("#f2eded")
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    #md_bg_color:get_color_from_hex("#fefefe")
+                    halign:"center"
+
+            MDCard:
+                id: wifi_name_card_2
+                size_hint: 0.7,0.15
+                radius:10,10,10,10
+                pos_hint: {'x': 0.15,'center_y': 0.575}    
+                md_bg_color:get_color_from_hex("#83aac7")
+
+                MDLabel:
+                    id: wifi_name_label_2
+                    size_hint:1,0.3
+                    text: "Atlastek2"
+                    theme_text_color:"Custom"
+                    font_size:self.height
+                    font_name: "font/SF-Pro-Rounded-Medium.otf"
+                    text_color:get_color_from_hex("#f2eded")
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    #md_bg_color:get_color_from_hex("#fefefe")
+                    halign:"center"
+
+            MDCard:
+                id: wifi_name_card_3
+                size_hint: 0.7,0.15
+                radius:10,10,10,10
+                pos_hint: {'x': 0.15,'center_y': 0.275}    
+                md_bg_color:get_color_from_hex("#3b4c59")
+
+                MDLabel:
+                    id: wifi_name_label_3
+                    size_hint:1,0.3
+                    text: "Atlastek3"
+                    theme_text_color:"Custom"
+                    font_size:self.height
+                    font_name: "font/SF-Pro-Rounded-Medium.otf"
+                    text_color:get_color_from_hex("#f2eded")
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    #md_bg_color:get_color_from_hex("#fefefe")
+                    halign:"center"
+
+<WifiPasswordWindow>:
+    MDScreen:
+        md_bg_color: get_color_from_hex("#16191b")
+
+        MDRelativeLayout:
+            size_hint:1,0.3
+            #md_bg_color:get_color_from_hex("#16191b")
+            pos_hint:{"left":0,"top":1}
+
+            MDCard:
+                size_hint: 1,0.8
+                radius:6,6,6,6
+                pos_hint: {'x': 0,'y': 0}   
+                md_bg_color:(0,0,0,0)
+                #md_bg_color:get_color_from_hex("#fefefe")
+                ripple_behavior: True
+                elevation:0
+                Image:
+                    source:"wifi.png"
+                    size_hint: 1,1
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        
+        MDRelativeLayout:
+            size_hint:1,0.1
+            #md_bg_color:get_color_from_hex("#fefefe")
+            pos_hint:{"left":0,"top":0.65}
+
+            MDLabel:
+                id: wifi_password_text
+                size_hint:1,0.2
+                text: "Please enter password for FiberHGW_TP06BA_5GHz."
+                theme_text_color:"Custom"
+                font_size:self.height
+                font_name: "font/SF-Pro-Rounded-Medium.otf"
+                text_color:get_color_from_hex("#f2eded")
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                #md_bg_color:get_color_from_hex("#fefefe")
+                halign:"center"
+
+        MDTextField:
+            theme_text_color: "Custom"
+            text_color: get_color_from_hex("#000000")
+            hint_text: "Password"
+            mode: "fill"
+            pos_hint:{"center_x": .5, "center_y":.5}
+            radius: 14,14,14,14
+            size_hint: 0.4,0.07
+            font_name: "font/SF-Pro-Rounded-Medium.otf"
+            font_size:"20sp"
+            line_color_focus: get_color_from_hex("#326bff")
+
+        MDRelativeLayout:
+            id: keyboard
+            size_hint:0.8,0.4
+            #md_bg_color:get_color_from_hex("#02355c")
+            pos_hint:{"center_x": .5, "center_y":.2}
+
+<WebWindow>:
+    MDScreen:
+        md_bg_color: get_color_from_hex("#16191b")
+
+
+
+
+
+
+
+
+
+
+                
+            
+
+
+
+        
+
+
+
+
+    
