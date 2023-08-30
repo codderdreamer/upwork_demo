@@ -9,7 +9,7 @@ async def handler(websocket, path):
         data = await websocket.recv()
         await websocket.send(data)
         if data == "open kivy interface":
-            os.system("sudo python /home/pi/upwork_demo/KeyboardClient/kivy_interface_main.py")
+            os.system("sudo python /home/pi/upwork_demo/Interface/kivy_interface_main.py")
         elif data == "open web interface":
             os.system("sudo su -l pi -c startx")
     except Exception as e:
