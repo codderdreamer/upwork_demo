@@ -84,6 +84,7 @@ class Application:
             keyboard.press_and_release('ctrl+alt+backspace')
             asyncio.set_event_loop(loop)
             asyncio.get_event_loop().run_until_complete(send_message("open kivy interface"))
+            print("here ctrl+shift+1")
         self.evet_keyboard = False
 
     def key2(self):
@@ -93,6 +94,7 @@ class Application:
             keyboard.press_and_release('esc')
             asyncio.set_event_loop(loop)
             asyncio.get_event_loop().run_until_complete(send_message("open web interface"))
+            print("here ctrl+shift+2")
         self.evet_keyboard = False
 
     def key3(self):
