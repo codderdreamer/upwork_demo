@@ -476,7 +476,7 @@ class Interface_Application:
         self.old_x = 0
         self.old_y = 0
 
-        self.evet_keyboard = False
+        self.evet_keyboard = True
 
         self.key_kontrol_stop = False
 

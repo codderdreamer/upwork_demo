@@ -5,7 +5,7 @@ from multiprocessing import Process, Manager
 
 class Application:
     def __init__(self):
-        self.evet_keyboard = False
+        self.evet_keyboard = True
         self.key_down_press = 0
 
 
