@@ -43,15 +43,11 @@ class Application:
     def key1(self):
         if self.evet_keyboard == True:
             print('*************************key: ctrl+shift+1')
-            print('Wifi Login screen')
-            os.system('sudo python Application.py')
         self.evet_keyboard = False
 
     def key2(self):
         if self.evet_keyboard == True:
             print('*************************key: ctrl+shift+2')
-            os.system("sudo su -l pi -c startx")
-
         self.evet_keyboard = False
 
     def key3(self):
