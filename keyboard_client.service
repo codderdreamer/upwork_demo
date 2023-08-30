@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=idle
-ExecStart=/usr/bin/python /home/pi/upwork_demo/KeyboardClient/keyboard_client.service
+ExecStart=/usr/bin/python /home/pi/upwork_demo/KeyboardClient/keyboard_client.py
 StandardOutput=inherit
 StandardError=inherit
 Restart=restart
