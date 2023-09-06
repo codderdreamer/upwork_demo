@@ -485,37 +485,37 @@ class Interface_Application:
 
     def key1(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+1 ')
+            print('************************* ctrl+shift+F1 ')
         self.evet_keyboard = False
 
     def key2(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+2')
+            print('************************* ctrl+shift+F2')
         self.evet_keyboard = False
 
     def key3(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+3')
+            print('************************* ctrl+shift+F3')
         self.evet_keyboard = False
 
     def key4(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+4')
+            print('************************* ctrl+shift+F4')
         self.evet_keyboard = False
 
     def key5(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+5')
+            print('************************* ctrl+shift+F5')
         self.evet_keyboard = False
 
     def key6(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+6')
+            print('************************* ctrl+shift+F6')
         self.evet_keyboard = False
 
     def key7(self):
         if self.evet_keyboard == True:
-            print('************************* ctrl+shift+7')
+            print('************************* ctrl+shift+F7')
         self.evet_keyboard = False
 
     def key_up(self):
@@ -664,13 +664,13 @@ class Interface_Application:
 
     def key_control(self):
         try:
-            keyboard.add_hotkey('ctrl+shift+1', self.key1)
-            keyboard.add_hotkey('ctrl+shift+2', self.key2)
-            keyboard.add_hotkey('ctrl+shift+3', self.key3)
-            keyboard.add_hotkey('ctrl+shift+4', self.key4)
-            keyboard.add_hotkey('ctrl+shift+5', self.key5)
-            keyboard.add_hotkey('ctrl+shift+6', self.key6)
-            keyboard.add_hotkey('ctrl+shift+7', self.key7)
+            keyboard.add_hotkey('ctrl+shift+F1', self.key1)
+            keyboard.add_hotkey('ctrl+shift+F2', self.key2)
+            keyboard.add_hotkey('ctrl+shift+F3', self.key3)
+            keyboard.add_hotkey('ctrl+shift+F4', self.key4)
+            keyboard.add_hotkey('ctrl+shift+F5', self.key5)
+            keyboard.add_hotkey('ctrl+shift+F6', self.key6)
+            keyboard.add_hotkey('ctrl+shift+F7', self.key7)
             keyboard.add_hotkey('up',self.key_up)
             keyboard.add_hotkey('down',self.key_down)
             keyboard.add_hotkey('right',self.key_right)
