@@ -7,6 +7,7 @@ import os
 async def handler(websocket, path):
     try:
         data = await websocket.recv()
+        print("data:", data)
         await websocket.send(data)
         if data == "open kivy interface":
             #os.system("sudo systemctl restart splashscreen.service")
@@ -18,6 +19,7 @@ async def handler(websocket, path):
         print(e)
 
 #os.system("sudo systemctl restart splashscreen.service")
+print("Server Started...")
 start_server = websockets.serve(handler, "localhost", 8000)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
