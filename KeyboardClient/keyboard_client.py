@@ -42,6 +42,7 @@ class Application:
                 print("send ve message temizlendi.")
             else:
                 print("self.send:", self.send, "self.message:",self.message)
+            time.sleep(1)
 
 
 
