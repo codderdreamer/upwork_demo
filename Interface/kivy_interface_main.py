@@ -521,81 +521,83 @@ class Interface_Application:
     def key_up(self):
         if self.evet_keyboard == True:
             print('************************* up')
-            if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
-                print("WifiSelectorWindow","up")
-                self.wifiApp.wifi_selector_window.startNumber = self.wifiApp.wifi_selector_window.startNumber - 1
+            if self.wifiApp.screenmanager.current_screen:
+                if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
+                    print("WifiSelectorWindow","up")
+                    self.wifiApp.wifi_selector_window.startNumber = self.wifiApp.wifi_selector_window.startNumber - 1
 
-                if len(self.wifiApp.active_wifi_names) - 2 == self.wifiApp.wifi_selector_window.startNumber:
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[0]
-                    self.wifiApp.wifi_selector_window.startNumber = -2
-                elif self.wifiApp.wifi_selector_window.startNumber == -1:
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[len(self.wifiApp.active_wifi_names)-1]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
-                elif self.wifiApp.wifi_selector_window.startNumber == 0:
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
-                else:
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
-            elif self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
-                pass
+                    if len(self.wifiApp.active_wifi_names) - 2 == self.wifiApp.wifi_selector_window.startNumber:
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[0]
+                        self.wifiApp.wifi_selector_window.startNumber = -2
+                    elif self.wifiApp.wifi_selector_window.startNumber == -1:
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[len(self.wifiApp.active_wifi_names)-1]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
+                    elif self.wifiApp.wifi_selector_window.startNumber == 0:
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
+                    else:
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
+                elif self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
+                    pass
         self.evet_keyboard = False
 
     def key_down(self):
         if self.evet_keyboard == True:
             print('************************* down')
-            if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
-                print("WifiSelectorWindow","down")
-                self.wifiApp.wifi_selector_window.startNumber = self.wifiApp.wifi_selector_window.startNumber + 1
+            if self.wifiApp.screenmanager.current_screen:
+                if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
+                    print("WifiSelectorWindow","down")
+                    self.wifiApp.wifi_selector_window.startNumber = self.wifiApp.wifi_selector_window.startNumber + 1
 
-                if len(self.wifiApp.active_wifi_names) - 2 == self.wifiApp.wifi_selector_window.startNumber:
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[0]
-                    self.wifiApp.wifi_selector_window.startNumber = -2
-                elif self.wifiApp.wifi_selector_window.startNumber == -1:
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[len(self.wifiApp.active_wifi_names)-1]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
-                elif self.wifiApp.wifi_selector_window.startNumber == 0:
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
-                else:
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
-                    self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
-            elif self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
-                self.password_down_counter += 1
-                if self.password_down_counter == 5:
-                    self.password_down_counter = 0
-                elif self.password_down_counter == -1:
-                    self.password_down_counter = 0
-                if self.password_right_counter == -1:
-                    self.password_right_counter = 0
+                    if len(self.wifiApp.active_wifi_names) - 2 == self.wifiApp.wifi_selector_window.startNumber:
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[0]
+                        self.wifiApp.wifi_selector_window.startNumber = -2
+                    elif self.wifiApp.wifi_selector_window.startNumber == -1:
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[len(self.wifiApp.active_wifi_names)-1]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
+                    elif self.wifiApp.wifi_selector_window.startNumber == 0:
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
+                    else:
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_1.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_2.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+1]
+                        self.wifiApp.wifi_selector_window.ids.wifi_name_label_3.text = self.wifiApp.active_wifi_names[self.wifiApp.wifi_selector_window.startNumber+2]
+                elif self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
+                    self.password_down_counter += 1
+                    if self.password_down_counter == 5:
+                        self.password_down_counter = 0
+                    elif self.password_down_counter == -1:
+                        self.password_down_counter = 0
+                    if self.password_right_counter == -1:
+                        self.password_right_counter = 0
 
-                if self.password_down_counter == 4:
-                    self.password_right_counter = 0
-                elif self.password_down_counter == 3:
-                    if self.password_right_counter > 9:
-                        self.password_right_counter = 9
-                elif self.password_down_counter == 2 or self.password_down_counter == 1:
-                    if self.password_right_counter > 11:
-                        self.password_right_counter = 11
-                elif self.password_down_counter == 0:
-                    if self.password_right_counter > 12:
-                        self.password_right_counter = 12
+                    if self.password_down_counter == 4:
+                        self.password_right_counter = 0
+                    elif self.password_down_counter == 3:
+                        if self.password_right_counter > 9:
+                            self.password_right_counter = 9
+                    elif self.password_down_counter == 2 or self.password_down_counter == 1:
+                        if self.password_right_counter > 11:
+                            self.password_right_counter = 11
+                    elif self.password_down_counter == 0:
+                        if self.password_right_counter > 12:
+                            self.password_right_counter = 12
 
-                
-                self.wifiApp.wifi_password_window.ids["key_" + str(self.old_x) + "_" + str(self.old_y)].md_bg_color = get_color_from_hex("#465966")
-                self.wifiApp.wifi_password_window.ids["key_" + str(self.password_right_counter) + "_" + str(self.password_down_counter)].md_bg_color = get_color_from_hex("#91b5cf")
-                self.old_x = self.password_right_counter
-                self.old_y = self.password_down_counter
+                    
+                    self.wifiApp.wifi_password_window.ids["key_" + str(self.old_x) + "_" + str(self.old_y)].md_bg_color = get_color_from_hex("#465966")
+                    self.wifiApp.wifi_password_window.ids["key_" + str(self.password_right_counter) + "_" + str(self.password_down_counter)].md_bg_color = get_color_from_hex("#91b5cf")
+                    self.old_x = self.password_right_counter
+                    self.old_y = self.password_down_counter
 
         self.evet_keyboard=False
 
@@ -605,50 +607,52 @@ class Interface_Application:
     def key_left(self):
         if self.evet_keyboard == True:
             print('************************* left')
-            if self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
-                self.password_right_counter -= 1
-                if self.password_right_counter == -1 or self.password_right_counter == -2:
-                    if self.password_down_counter == 0:
-                        self.password_right_counter = 13
-                    elif self.password_down_counter == 1 or self.password_down_counter == 2:
-                        self.password_right_counter = 12
-                    elif self.password_down_counter == 3:
-                        self.password_right_counter = 10
-                    elif self.password_down_counter == 4:
-                        self.password_right_counter = 0
-    
-                self.wifiApp.wifi_password_window.ids["key_" + str(self.old_x) + "_" + str(self.old_y)].md_bg_color = get_color_from_hex("#465966")
-                self.wifiApp.wifi_password_window.ids["key_" + str(self.password_right_counter) + "_" + str(self.password_down_counter)].md_bg_color = get_color_from_hex("#91b5cf")
+            if self.wifiApp.screenmanager.current_screen:
+                if self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
+                    self.password_right_counter -= 1
+                    if self.password_right_counter == -1 or self.password_right_counter == -2:
+                        if self.password_down_counter == 0:
+                            self.password_right_counter = 13
+                        elif self.password_down_counter == 1 or self.password_down_counter == 2:
+                            self.password_right_counter = 12
+                        elif self.password_down_counter == 3:
+                            self.password_right_counter = 10
+                        elif self.password_down_counter == 4:
+                            self.password_right_counter = 0
+        
+                    self.wifiApp.wifi_password_window.ids["key_" + str(self.old_x) + "_" + str(self.old_y)].md_bg_color = get_color_from_hex("#465966")
+                    self.wifiApp.wifi_password_window.ids["key_" + str(self.password_right_counter) + "_" + str(self.password_down_counter)].md_bg_color = get_color_from_hex("#91b5cf")
 
-                self.old_x = self.password_right_counter
-                self.old_y = self.password_down_counter
+                    self.old_x = self.password_right_counter
+                    self.old_y = self.password_down_counter
 
         self.evet_keyboard = False
 
     def key_right(self):
         if self.evet_keyboard == True:
             print('************************* right')
-            if self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
-                self.password_right_counter += 1
-                if self.password_down_counter == -1:
-                    self.password_down_counter = 0
-                self.wifiApp.wifi_password_window.ids["key_" + str(self.old_x) + "_" + str(self.old_y)].md_bg_color = get_color_from_hex("#465966")
-                self.wifiApp.wifi_password_window.ids["key_" + str(self.password_right_counter) + "_" + str(self.password_down_counter)].md_bg_color = get_color_from_hex("#91b5cf")
-                self.old_x = self.password_right_counter
-                self.old_y = self.password_down_counter
-                # keyboard en sona gelmişse başa dönmesi için kullanıyorum
-                if self.password_down_counter == 0:
-                    if self.password_right_counter == 13:
-                        self.password_right_counter = -1
-                elif self.password_down_counter == 1 or self.password_down_counter == 2:
-                    if self.password_right_counter == 12:
-                        self.password_right_counter = -1
-                elif self.password_down_counter == 3:
-                    if self.password_right_counter == 10:
-                        self.password_right_counter = -1
-                elif self.password_down_counter == 4:
-                    if self.password_right_counter == 0:
-                        self.password_right_counter = -1
+            if self.wifiApp.screenmanager.current_screen:
+                if self.wifiApp.screenmanager.current_screen.manager.current ==  "WifiPasswordWindow":
+                    self.password_right_counter += 1
+                    if self.password_down_counter == -1:
+                        self.password_down_counter = 0
+                    self.wifiApp.wifi_password_window.ids["key_" + str(self.old_x) + "_" + str(self.old_y)].md_bg_color = get_color_from_hex("#465966")
+                    self.wifiApp.wifi_password_window.ids["key_" + str(self.password_right_counter) + "_" + str(self.password_down_counter)].md_bg_color = get_color_from_hex("#91b5cf")
+                    self.old_x = self.password_right_counter
+                    self.old_y = self.password_down_counter
+                    # keyboard en sona gelmişse başa dönmesi için kullanıyorum
+                    if self.password_down_counter == 0:
+                        if self.password_right_counter == 13:
+                            self.password_right_counter = -1
+                    elif self.password_down_counter == 1 or self.password_down_counter == 2:
+                        if self.password_right_counter == 12:
+                            self.password_right_counter = -1
+                    elif self.password_down_counter == 3:
+                        if self.password_right_counter == 10:
+                            self.password_right_counter = -1
+                    elif self.password_down_counter == 4:
+                        if self.password_right_counter == 0:
+                            self.password_right_counter = -1
 
         self.evet_keyboard = False
 
@@ -656,9 +660,10 @@ class Interface_Application:
     def key_enter(self):
         if self.evet_keyboard == True:
             print('************************* enter')
-            if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
-                print("WifiSelectorWindow","enter")
-                self.wifiApp.openWifiPasswordWindow()
+            if self.wifiApp.screenmanager.current_screen:
+                if self.wifiApp.screenmanager.current_screen.manager.current == "WifiSelectorWindow":
+                    print("WifiSelectorWindow","enter")
+                    self.wifiApp.openWifiPasswordWindow()
                 
         self.evet_keyboard = False
 
