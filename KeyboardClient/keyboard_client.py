@@ -29,21 +29,33 @@ class Application:
         self.key_down_press = 0
         self.connected = False
 
-    
+        self.send = False
+        self.message = ""
+
+    def send_message_thread(self,loop):
+        while True:
+            if self.send and self.message != "":
+                asyncio.set_event_loop(loop)
+                asyncio.get_event_loop().run_until_complete(send_message(self.message))
+                self.send = False
+                self.message = ""
+                print("send ve message temizlendi.")
+            else:
+                print("self.send:", self.send, "self.message:",self.message)
+
+
 
     def set_connected(self,value):
         if self.connected != value:
             self.connected = value
             if self.connected == False:
                 keyboard.press_and_release('ctrl+alt+backspace')
-                asyncio.set_event_loop(loop)
-                asyncio.get_event_loop().run_until_complete(send_message("open kivy interface"))
+                self.message = "open kivy interface"
+                self.send = True
             else:
                 keyboard.press_and_release('esc')
-                asyncio.set_event_loop(loop)
-                asyncio.get_event_loop().run_until_complete(send_message("open web interface"))
-                
-
+                self.message = "open web interface"
+                self.send = True
 
 
     def key_control(self,loop):
@@ -82,8 +94,8 @@ class Application:
             print('*************************key: ctrl+shift+F1') 
             keyboard.press_and_release('esc')
             keyboard.press_and_release('ctrl+alt+backspace')
-            asyncio.set_event_loop(loop)
-            asyncio.get_event_loop().run_until_complete(send_message("open kivy interface"))
+            self.message = "open kivy interface"
+            self.send = True
             print("here ctrl+shift+1")
         self.evet_keyboard = False
 
@@ -92,8 +104,8 @@ class Application:
             print('*************************key: ctrl+shift+F2')
             keyboard.press_and_release('ctrl+alt+backspace')
             keyboard.press_and_release('esc')
-            asyncio.set_event_loop(loop)
-            asyncio.get_event_loop().run_until_complete(send_message("open web interface"))
+            self.message = "open web interface"
+            self.send = True
             print("here ctrl+shift+2")
         self.evet_keyboard = False
 
@@ -170,7 +182,8 @@ app = Application()
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
 threading.Thread(target=app.key_control,args=(loop,),daemon=True).start()
-# threading.Thread(target=app.is_network_connected,daemon=True).start()
+threading.Thread(target=app.send_message_thread,args=(loop,),daemon=True).start()
+
 
 while True:
     time.sleep(1)
