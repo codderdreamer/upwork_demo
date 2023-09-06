@@ -35,7 +35,7 @@ class Application:
     def send_message_thread(self,loop):
         while True:
             if self.send and self.message != "":
-                time.sleep(5)
+                time.sleep(10)
                 asyncio.set_event_loop(loop)
                 asyncio.get_event_loop().run_until_complete(send_message(self.message))
                 self.send = False
