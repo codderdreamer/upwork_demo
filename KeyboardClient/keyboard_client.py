@@ -18,8 +18,8 @@ import time
 async def send_message(data):
     async with websockets.connect('ws://127.0.0.1:8000') as websocket:
         await websocket.send(data)
-        response = await websocket.recv()
-        print(response)
+        # response = await websocket.recv()
+        # print(response)
 
 class Application:
     def __init__(self):
