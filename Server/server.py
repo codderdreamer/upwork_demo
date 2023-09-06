@@ -7,7 +7,6 @@ import os
 async def handler(websocket, path):
     try:
         data = await websocket.recv()
-        time.sleep(1)
         print("data:", data)
         await websocket.send(data)
         if data == "open kivy interface":
