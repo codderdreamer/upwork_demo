@@ -15,11 +15,7 @@ import time
 # ctrl+shift+3 çerezleri sil
 # ctrl+shift+4 ekran yönü değiştir
 
-async def send_message(data):
-    async with websockets.connect('ws://127.0.0.1:8000') as websocket:
-        await websocket.send(data)
-        # response = await websocket.recv()
-        # print(response)
+
 
 class Application:
     def __init__(self):
@@ -32,14 +28,21 @@ class Application:
         self.send = False
         self.message = ""
 
+    async def send_message(self,data):
+        print("send message")
+        async with websockets.connect('ws://127.0.0.1:8000') as websocket:
+            await websocket.send(data)
+            self.send = False
+            self.message = ""
+            # response = await websocket.recv()
+            # print(response)
+
     def send_message_thread(self,loop):
         while True:
             if self.send and self.message != "":
-                time.sleep(10)
                 asyncio.set_event_loop(loop)
-                asyncio.get_event_loop().run_until_complete(send_message(self.message))
-                self.send = False
-                self.message = ""
+                asyncio.get_event_loop().run_until_complete(self.send_message(self.message))
+                
                 print("send ve message temizlendi.")
             else:
                 print("self.send:", self.send, "self.message:",self.message)
