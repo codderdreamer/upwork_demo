@@ -42,8 +42,6 @@ class Application:
             if self.send and self.message != "":
                 asyncio.set_event_loop(loop)
                 asyncio.get_event_loop().run_until_complete(self.send_message(self.message))
-                
-                print("send ve message temizlendi.")
             else:
                 print("self.send:", self.send, "self.message:",self.message)
             time.sleep(1)
