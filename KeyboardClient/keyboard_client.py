@@ -34,8 +34,6 @@ class Application:
             await websocket.send(data)
             self.send = False
             self.message = ""
-            # response = await websocket.recv()
-            # print(response)
 
     def send_message_thread(self,loop):
         while True:
